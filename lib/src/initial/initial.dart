@@ -37,7 +37,7 @@ class Initial extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const HarpaList(),
+                      builder: (context) => HarpaList(),
                     ),
                   );
                 },
