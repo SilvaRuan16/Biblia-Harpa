@@ -17,57 +17,77 @@ class HarpaList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.blue,
+        backgroundColor: Colors.brown[700],
         centerTitle: true,
         automaticallyImplyLeading: false,
-        leading: Builder(builder: (BuildContext context) {
-          return IconButton(
+        leading: Builder(
+          builder: (BuildContext context) {
+            return IconButton(
               onPressed: () {
                 Scaffold.of(context).openDrawer();
               },
               icon: const Icon(Icons.menu, color: Colors.white),
-              color: Colors.black);
-        }),
+            );
+          },
+        ),
         title: const Text(
           'Harpa Cristã',
           style: TextStyle(color: Colors.white),
         ),
       ),
       drawer: Drawer(
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children: <Widget>[
-            DrawerHeader(
-              decoration: BoxDecoration(
-                color: Colors.blue,
+        child: Column(
+          children: [
+            Expanded(
+              child: ListView(
+                children: [
+                  DrawerHeader(
+                    decoration: BoxDecoration(
+                      color: Colors.brown[700],
+                    ),
+                    child: const Text(
+                      'Menu',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 24,
+                      ),
+                    ),
+                  ),
+                  ListTile(
+                    title: const Text('Item 1'),
+                    onTap: () {
+                      // Ação para o Item 1
+                    },
+                  ),
+                  ListTile(
+                    title: const Text('Item 2'),
+                    onTap: () {
+                      // Ação para o Item 2
+                    },
+                  ),
+                  ListTile(
+                    title: const Text('Item 3'),
+                    onTap: () {
+                      // Ação para o Item 3
+                    },
+                  ),
+                ],
               ),
-              child: Text(
-                'Menu',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 24,
-                ),
-              ),
-            ),
-            ListTile(
-              title: Text('Item 1'),
-            ),
-            ListTile(
-              title: Text('Item 2'),
-            ),
-            ListTile(
-              title: Text('Item 3'),
             ),
             SizedBox(
               width: double.infinity,
               child: ListTile(
-                title: Text(
+                tileColor: Colors.brown,
+                title: const Text(
                   'Voltar',
                   style: TextStyle(color: Colors.white),
                   textAlign: TextAlign.center,
                 ),
                 onTap: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => Initial()));
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const Initial()),
+                  );
                 },
               ),
             ),
@@ -81,10 +101,11 @@ class HarpaList extends StatelessWidget {
             title: Text(harps[index]),
             onTap: () {
               Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) =>
-                          HarpContentScreen(harp: harps[index])));
+                context,
+                MaterialPageRoute(
+                  builder: (context) => HarpContentScreen(harp: harps[index]),
+                ),
+              );
             },
           );
         },
