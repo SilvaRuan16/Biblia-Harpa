@@ -9,29 +9,17 @@ class Initial extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.brown[700],
-      body: Column(
-        children: [
-          const SizedBox(height: 40),
-          Image.asset(
-            'assets/images/cruzbrancalogo-removebg-preview.png',
-            width: 200,
-            height: 200,
-            fit: BoxFit.cover,
-          ),
-          Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
+      body: Center( 
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center, 
+          children: [
+            const SizedBox(height: 40),
+            const Icon(Icons.menu_book_rounded, color: Colors.white, size: 100.0),
+            const Text('ADSV', style: TextStyle(fontSize: 22, color: Colors.white, fontWeight: FontWeight.bold)),
+            const SizedBox(height: 70),
+            Column( 
+              mainAxisAlignment: MainAxisAlignment.center, 
               children: [
-                const SizedBox(
-                  child: Text(
-                    'Harpa e Biblia',
-                    style: TextStyle(
-                      fontSize: 30,
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
-                const SizedBox(height: 70),
                 SizedBox(
                   width: 200,
                   height: 50,
@@ -45,16 +33,17 @@ class Initial extends StatelessWidget {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(
-                          builder: (context) => HarpaList(),
-                        ),
+                        MaterialPageRoute(builder: (context) => HarpaList()),
                       );
                     },
-                    label: Text('Harpa',
-                        style: TextStyle(fontSize: 18, color: Colors.grey[800])),
+                    label: Text(
+                      'Harpa',
+                      style: TextStyle(fontSize: 18, color: Colors.grey[800]),
+                    ),
                   ),
                 ),
                 const SizedBox(height: 20),
+                const SizedBox(width: 10.0), 
                 SizedBox(
                   width: 200,
                   height: 50,
@@ -68,19 +57,19 @@ class Initial extends StatelessWidget {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(
-                          builder: (context) => const BiibleList(),
-                        ),
+                        MaterialPageRoute(builder: (context) => const BiibleList()),
                       );
                     },
-                    label: Text('Biblia',
-                        style: TextStyle(fontSize: 18, color: Colors.grey[800])),
+                    label: Text(
+                      'Biblia',
+                      style: TextStyle(fontSize: 18, color: Colors.grey[800]),
+                    ),
                   ),
                 ),
               ],
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

@@ -37,41 +37,25 @@ class HarpaList extends StatelessWidget {
       ),
       drawer: Drawer(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Expanded(
-              child: ListView(
-                children: [
-                  DrawerHeader(
-                    decoration: BoxDecoration(
-                      color: Colors.brown[700],
-                    ),
-                    child: const Text(
-                      'Menu',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 24,
-                      ),
-                    ),
-                  ),
-                  ListTile(
-                    title: const Text('Item 1'),
-                    onTap: () {
-                      // Ação para o Item 1
-                    },
-                  ),
-                  ListTile(
-                    title: const Text('Item 2'),
-                    onTap: () {
-                      // Ação para o Item 2
-                    },
-                  ),
-                  ListTile(
-                    title: const Text('Item 3'),
-                    onTap: () {
-                      // Ação para o Item 3
-                    },
-                  ),
-                ],
+            DrawerHeader(
+              decoration: BoxDecoration(
+                color: Colors.brown[700],
+              ),
+              child: Container(
+                width: double.infinity,
+                margin: const EdgeInsets.all(20),
+                decoration: const BoxDecoration(
+                  shape: BoxShape.circle
+                ),
+                child: Image.asset(
+                  'assets/images/logoFotoImage.png',
+                  width: 150,
+                  height: 150,
+                  fit: BoxFit.contain,
+                ),
               ),
             ),
             SizedBox(
@@ -98,6 +82,7 @@ class HarpaList extends StatelessWidget {
         itemCount: harps.length,
         itemBuilder: (context, index) {
           return ListTile(
+            leading: const Icon(Icons.menu_book_rounded),
             title: Text(harps[index]),
             onTap: () {
               Navigator.push(
