@@ -16,7 +16,12 @@ class HarpaList extends StatelessWidget {
     '7 – Cristo Cura Sim',
     '8 – Cristo, o Fiel Amigo',
     '9 – Marchai Soldado',
-    '10 – Eu Te Louvo'
+    '10 – Eu Te Louvo',
+    '11 – Ó Cristão, Eia Avante',
+    '12 – Vem Já Pecador',
+    '13 – Jesus Comprou-me',
+    '14 – Gozo Em Jesus',
+    '15 – Conversão'
   ];
 
   @override

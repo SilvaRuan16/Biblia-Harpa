@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:math';
 import 'package:appbible/src/config.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -20,12 +21,15 @@ class HarpContentScreen extends StatelessWidget {
   final String harp;
 
   Future<List<TextModel>> loadTexts() async {
-    String jsonString = await rootBundle.loadString('../../assets/json/texts.json');
-    Map<String, dynamic> jsonResponse = jsonDecode(jsonString);
-    List<dynamic> textJson = jsonResponse['texts'];
-    List<TextModel> texts = textJson.map((json) => TextModel.fromJson(json)).toList();
-
-    return texts;
+    try {
+      String jsonString = await rootBundle.loadString('assets/json/texts.json');
+      Map<String, dynamic> jsonResponse = jsonDecode(jsonString);
+      List<dynamic> textJson = jsonResponse['texts'];
+      List<TextModel> texts = textJson.map((json) => TextModel.fromJson(json)).toList();
+      return texts;
+    } catch(_) {
+      return [];
+    }
   }
 
   @override
