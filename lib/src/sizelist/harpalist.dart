@@ -1,3 +1,4 @@
+import 'package:appbible/src/config.dart';
 import 'package:appbible/src/content/harpContent.dart';
 import 'package:appbible/src/initial/initial.dart';
 import 'package:flutter/material.dart';
@@ -10,14 +11,19 @@ class HarpaList extends StatelessWidget {
     '2 - Saudosa Lembrança',
     '3 - Plena Paz',
     '4 - Deus Velará Por Ti',
-    '5 - Ó Desce Fogo Santo'
+    '5 - Ó Desce Fogo Santo',
+    '6 – Na Maldição da Cruz',
+    '7 – Cristo Cura Sim',
+    '8 – Cristo, o Fiel Amigo',
+    '9 – Marchai Soldado',
+    '10 – Eu Te Louvo'
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.brown[700],
+        backgroundColor: mainColor,
         centerTitle: true,
         automaticallyImplyLeading: false,
         leading: Builder(
@@ -41,8 +47,8 @@ class HarpaList extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             DrawerHeader(
-              decoration: BoxDecoration(
-                color: Colors.brown[700],
+              decoration: const BoxDecoration(
+                color: mainColor,
               ),
               child: Container(
                 width: double.infinity,
@@ -51,7 +57,7 @@ class HarpaList extends StatelessWidget {
                   shape: BoxShape.circle
                 ),
                 child: Image.asset(
-                  'assets/images/logoFotoImage.png',
+                  'assets/images/drawerimg.png',
                   width: 150,
                   height: 150,
                   fit: BoxFit.contain,
@@ -61,7 +67,7 @@ class HarpaList extends StatelessWidget {
             SizedBox(
               width: double.infinity,
               child: ListTile(
-                tileColor: Colors.brown,
+                tileColor: mainColor,
                 title: const Text(
                   'Voltar',
                   style: TextStyle(color: Colors.white),
