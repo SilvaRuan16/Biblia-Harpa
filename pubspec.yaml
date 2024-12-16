@@ -25,4 +25,4 @@ flutter:
 
   assets:
     - assets/images/
-    - assets/json/texts.json
+    - assets/json/harpa_crista_640_hinos.json

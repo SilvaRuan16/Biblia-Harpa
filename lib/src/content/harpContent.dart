@@ -5,13 +5,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class TextModel {
-  final String title;
-  final String content;
+  final String hino;
+  final String coro;
+  final String verses;
 
-  TextModel({required this.title, required this.content});
+  TextModel({required this.hino, required this.coro, required this.verses});
 
   factory TextModel.fromJson(Map<String, dynamic> json) {
-    return TextModel(title: json['title'], content: json['content']);
+    return TextModel(hino: json['hino'], coro: json['coro'], verses: json['verses']);
   }
 }
 
@@ -22,7 +23,7 @@ class HarpContentScreen extends StatelessWidget {
 
   Future<List<TextModel>> loadTexts() async {
     try {
-      String jsonString = await rootBundle.loadString('assets/json/texts.json');
+      String jsonString = await rootBundle.loadString('assets/json/harpa_crista_640_hinos.json');
       Map<String, dynamic> jsonResponse = jsonDecode(jsonString);
       List<dynamic> textJson = jsonResponse['texts'];
       List<TextModel> texts = textJson.map((json) => TextModel.fromJson(json)).toList();
@@ -59,12 +60,17 @@ class HarpContentScreen extends StatelessWidget {
             }
 
             final harpText = snapshot.data!.firstWhere(
-              (text) => text.title == harp,
-              orElse: () => TextModel(title: 'Não encontrado', content: 'Hino não encontrado'),
+              (text) => text.hino == harp,
+              orElse: () => TextModel(hino: 'Hino não encontrado', coro: 'Coro não encontrado', verses: 'Versos não encontrados'),
             );
 
             return SingleChildScrollView(
-              child: Text(harpText.content, style: const TextStyle(fontSize: 16)),
+              child: Column(
+                children: [
+                  Text(harpText.coro, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+                  Text(harpText.verses, style: const TextStyle(fontSize: 16)),
+                ],
+              ),
             );
           },
         ),
