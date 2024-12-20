@@ -3,25 +3,30 @@ import 'package:appbible/src/content/harpContent.dart';
 import 'package:appbible/src/initial/initial.dart';
 import 'package:flutter/material.dart';
 
-class HarpaList extends StatelessWidget {
-  HarpaList({super.key});
+class HarpaList extends StatefulWidget {
+  const HarpaList({super.key});
 
+  @override
+  _HarpaListState createState() => _HarpaListState();
+}
+
+class _HarpaListState extends State<HarpaList> {
   final List<String> harps = [
     '1 - Chuvas de Graça',
     '2 - Saudosa Lembrança',
     '3 - Plena Paz',
     '4 - Deus Velará Por Ti',
     '5 - Ó Desce Fogo Santo',
-    '6 – Na Maldição da Cruz',
-    '7 – Cristo Cura Sim',
-    '8 – Cristo, o Fiel Amigo',
-    '9 – Marchai Soldado',
-    '10 – Eu Te Louvo',
-    '11 – Ó Cristão, Eia Avante',
-    '12 – Vem Já Pecador',
-    '13 – Jesus Comprou-me',
-    '14 – Gozo Em Jesus',
-    '15 – Conversão',
+    '6 - Na Maldição Da Cruz',
+    '7 - Cristo Cura Sim!',
+    '8 - Cristo, O Fiel Amigo',
+    "9 - Marchai Soldados De Cristo",
+    "10 - Eu Te Louvo",
+    "11 - Ó Cristão, Eia Avante",
+    "12 - Vem Já, Pecador",
+    "13 - Jesus Comprou-me",
+    "14 - Gozo Em Jesus",
+    "15 - Conversão",
     '16 - Despertar Para o Trabalho',
     '17 - Pensando Em Jesus',
     '18 - Grata Nova',
@@ -179,8 +184,63 @@ class HarpaList extends StatelessWidget {
     "170 - Ao Calvário de Horror",
     "171 - Um Pecador Remido",
     "172 - Ó Vem Te Entregar",
-    
+    "173 - Os Santos Louvam Ao Senhor",
+    "174 - Glória, Aleluia, Gloria",
+    "175 - Irmãos Amados",
+    "176 - Sacerdotes do Senhor",
+    "177 - Salvo Estou",
+    "178 - Gloriosa Paz",
+    "179 - Redentor Formoso",
+    "180 - Em Cristo Fruímos a Paz",
+    "181 - Vem, Celeste Redentor",
+    "182 - Jesus no Getsêmane",
+    "183 - Ressuscitou!",
+    "184 - Meu Jesus! Meu Jesus!",
+    "185 - Invocação e Louvor",
+    "186 - De Valor em Valor",
+    "187 - Mais Perto Meu Deus de Ti!",
+    "188 - O Gozo do Céu",
+    "189 - Glória ao Salvador",
+    "190 - Cristo! Meu Cristo!",
+    "191 - O Meu Jesus",
+    "192 - Pelo Sangue",
+    "193 - A Alma Abatida",
+    "194 - Jesus Me Guiará",
+    "195 - Benigno Salvador",
+    "196 - Uma Flor Gloriosa",
+    "197 - O Lar da Glória",
+    "198 - Jesus o Bom Amigo",
+    "199 - A Ceia do Senhor",
+    "200 - O Bondoso Amigo"
   ];
+
+  List<String> filteredHarps = [];
+
+  final TextEditingController _searchController = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+
+    filteredHarps = harps;
+    _searchController.addListener(_filterHarps);
+  }
+
+  @override
+  void dispose() {
+    _searchController.removeListener(_filterHarps);
+    _searchController.dispose();
+    super.dispose();
+  }
+
+  void _filterHarps() {
+    setState(() {
+      filteredHarps = harps
+          .where((hino) =>
+              hino.toLowerCase().contains(_searchController.text.toLowerCase()))
+          .toList();
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -245,22 +305,40 @@ class HarpaList extends StatelessWidget {
           ],
         ),
       ),
-      body: ListView.builder(
-        itemCount: harps.length,
-        itemBuilder: (context, index) {
-          return ListTile(
-            leading: const Icon(Icons.menu_book_rounded),
-            title: Text(harps[index]),
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => HarpContentScreen(harp: harps[index]),
-                ),
-              );
-            },
-          );
-        },
+      body: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: TextField(
+              controller: _searchController,
+              decoration: const InputDecoration(
+                labelText: 'Pesquisar Hino',
+                border: OutlineInputBorder(),
+                prefixIcon: Icon(Icons.search),
+              ),
+            ),
+          ),
+          Expanded(
+            child: ListView.builder(
+              itemCount: filteredHarps.length,
+              itemBuilder: (context, index) {
+                return ListTile(
+                  leading: const Icon(Icons.menu_book_rounded),
+                  title: Text(filteredHarps[index]),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) =>
+                            HarpContentScreen(harp: filteredHarps[index]),
+                      ),
+                    );
+                  },
+                );
+              },
+            ),
+          ),
+        ],
       ),
     );
   }

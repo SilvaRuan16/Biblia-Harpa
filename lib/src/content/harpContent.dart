@@ -12,7 +12,12 @@ class TextModel {
   TextModel({required this.hino, required this.coro, required this.verses});
 
   factory TextModel.fromJson(Map<String, dynamic> json) {
-    return TextModel(hino: json['hino'], coro: json['coro'], verses: json['verses']);
+    String verses = json['verses'] != null ? json['verses'].values.toString() : 'Versos não encontrados';
+    return TextModel(
+      hino: json['hino'] ?? 'Hino não encontrado',
+      coro: json['coro'] ?? 'Coro não encontrado',
+      verses: verses,
+    );
   }
 }
 
@@ -25,10 +30,12 @@ class HarpContentScreen extends StatelessWidget {
     try {
       String jsonString = await rootBundle.loadString('assets/json/harpa_crista_640_hinos.json');
       Map<String, dynamic> jsonResponse = jsonDecode(jsonString);
-      List<dynamic> textJson = jsonResponse['texts'];
-      List<TextModel> texts = textJson.map((json) => TextModel.fromJson(json)).toList();
+      List<TextModel> texts = [];
+      jsonResponse.forEach((key, value) {
+        texts.add(TextModel.fromJson(value));
+      });
       return texts;
-    } catch(_) {
+    } catch (_) {
       return [];
     }
   }
@@ -47,28 +54,30 @@ class HarpContentScreen extends StatelessWidget {
         child: FutureBuilder<List<TextModel>>(
           future: loadTexts(),
           builder: (context, snapshot) {
-            if(snapshot.connectionState == ConnectionState.waiting){
+            if (snapshot.connectionState == ConnectionState.waiting) {
               return const Center(child: CircularProgressIndicator());
             }
 
-            if(snapshot.hasError){
+            if (snapshot.hasError) {
               return const Center(child: Text('Erro ao carregar os textos.'));
             }
 
-            if(!snapshot.hasData || snapshot.data!.isEmpty){
+            if (!snapshot.hasData || snapshot.data!.isEmpty) {
               return const Center(child: Text('Nenhum texto encontrado.'));
             }
 
             final harpText = snapshot.data!.firstWhere(
-              (text) => text.hino == harp,
-              orElse: () => TextModel(hino: 'Hino não encontrado', coro: 'Coro não encontrado', verses: 'Versos não encontrados'),
+              (text) => text.hino.toLowerCase().trim() == harp.toLowerCase().trim(),
+              orElse: () => TextModel.fromJson({})
             );
 
             return SingleChildScrollView(
               child: Column(
                 children: [
-                  Text(harpText.coro, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
-                  Text(harpText.verses, style: const TextStyle(fontSize: 16)),
+                  Text(harpText.coro, style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  textAlign: TextAlign.justify),
+                  Text(harpText.verses, style: const TextStyle(fontSize: 18),
+                  textAlign: TextAlign.justify),
                 ],
               ),
             );
