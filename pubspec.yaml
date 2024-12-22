@@ -1,5 +1,5 @@
-name: appbible
-description: "A new Flutter project."
+name: biblia_e_harpa
+description: "Projeto voltado para desenvolvimento de biblia e harpa sem conexão com a internet"
 
 publish_to: 'none'
 
@@ -19,6 +19,7 @@ dev_dependencies:
     sdk: flutter
   
   flutter_lints: ^4.0.0
+  flutter_launcher_icons: ^0.14.1
 
 flutter:
   uses-material-design: true
@@ -26,3 +27,11 @@ flutter:
   assets:
     - assets/images/
     - assets/json/harpa_crista_640_hinos.json
+
+flutter_icons:
+  image_path: "assets/images/logoExecutavel.png"
+  android: true
+  ios: true
+  remove_alpha_ios: true
+  adaptive_icon_background: "#D3D3D3"
+  adaptive_icon_foreground: "assets/images/logoExecutavel.png"

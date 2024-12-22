@@ -1,5 +1,5 @@
+import 'package:biblia_e_harpa/src/initial/initial.dart';
 import 'package:flutter/material.dart';
-import 'package:appbible/src/initial/initial.dart';
 import 'package:flutter/services.dart';
 
 void main() async {

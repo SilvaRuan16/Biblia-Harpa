@@ -1,6 +1,5 @@
 import 'dart:convert';
-import 'dart:math';
-import 'package:appbible/src/config.dart';
+import 'package:biblia_e_harpa/src/config.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 

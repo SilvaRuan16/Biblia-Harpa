@@ -1,6 +1,6 @@
-import 'package:appbible/src/config.dart';
-import 'package:appbible/src/content/harpContent.dart';
-import 'package:appbible/src/initial/initial.dart';
+import 'package:biblia_e_harpa/src/config.dart';
+import 'package:biblia_e_harpa/src/content/harpContent.dart';
+import 'package:biblia_e_harpa/src/initial/initial.dart';
 import 'package:flutter/material.dart';
 
 class HarpaList extends StatefulWidget {
@@ -211,7 +211,57 @@ class _HarpaListState extends State<HarpaList> {
     "197 - O Lar da Glória",
     "198 - Jesus o Bom Amigo",
     "199 - A Ceia do Senhor",
-    "200 - O Bondoso Amigo"
+    "200 - O Bondoso Amigo",
+    "201 - A Decisão",
+    "202 - Lugar de Delícias",
+    "203 - Deixai as Ilusões",
+    "204 - O Peregrino da Terra",
+    "205 - Graça, Graça",
+    "206 - O Clarim nos Alerta",
+    "207 - Jerusalém Divina",
+    "208 - Vem a Cristo",
+    "209 - A Voz do Bom Pastor",
+    "210 - Fala, fala, Senhor",
+    "211 - Vem a Deus",
+    "212 - Os Guerreiros Se Preparam",
+    "213 - Sobre a Terra Vou Andando",
+    "214 - Desejamos ir Lá",
+    "215 - Ver-nos-emos",
+    "216 - Louvai a Deus",
+    "217 - Ouve Sua Voz",
+    "218 - Dá Teu Fardo a Jesus",
+    "219 - O Amor do Criador",
+    "220 - Ide Segar",
+    "221 - Opera em Mim",
+    "222 - Vem a Jesus, ó Perdido",
+    "223 - Na Minh’Alma Reina a Paz",
+    "224 - É o Tempo de Segar",
+    "225 - Sê Valente",
+    "226 - Cristo, Teu Santo Amor",
+    "227 - Deus Amou de Tal Maneira",
+    "228 - Este Mundo Não Compreende",
+    "229 - Jesus, ó Meigo Salvador",
+    "230 - Nós Vogamos Nesta Nau",
+    "231 - Não Foi Com Ouro",
+    "232 - Os Bem Aventurados",
+    "233 - A Ceia Do Senhor",
+    "234 - O Gozo Dos Santos",
+    "235 - Já Sei, Já Sei",
+    "236 - Já Nos Lavou",
+    "237 - O Gozo de Estar Preparado",
+    "238 - Ó Pecador Desalentado",
+    "239 - Imploramos o Consolador",
+    "240 - Oh Dia Alegre",
+    "241 - Marchemos Sem Temor",
+    "242 - Eu Confio Firmemente",
+    "243 - Ao Abrir o Culto",
+    "244 - Louvai a Jesus",
+    "245 - Paz de Deus em Jesus Encontrei",
+    "246 - O Descanso em Jesus",
+    "247 - Deus Nos Guarde No Seu Amor",
+    "248 - Hosana e Glória",
+    "249 - Ó vem, Senhor, e Habita",
+    "250 - Noiva de Jesus, Apronta-te",
   ];
 
   List<String> filteredHarps = [];

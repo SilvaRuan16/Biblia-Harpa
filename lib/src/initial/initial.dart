@@ -1,5 +1,5 @@
-import 'package:appbible/src/sizelist/biblelist.dart';
-import 'package:appbible/src/sizelist/harpalist.dart';
+import 'package:biblia_e_harpa/src/sizelist/biblelist.dart';
+import 'package:biblia_e_harpa/src/sizelist/harpalist.dart';
 import 'package:flutter/material.dart';
 
 class Initial extends StatelessWidget {
@@ -40,7 +40,7 @@ class Initial extends StatelessWidget {
                       onPressed: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => HarpaList()),
+                          MaterialPageRoute(builder: (context) => const HarpaList()),
                         );
                       },
                       label: Text(
