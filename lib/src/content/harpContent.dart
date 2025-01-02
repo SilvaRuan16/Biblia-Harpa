@@ -53,17 +53,11 @@ class HarpContentScreen extends StatelessWidget {
         child: FutureBuilder<List<TextModel>>(
           future: loadTexts(),
           builder: (context, snapshot) {
-            if (snapshot.connectionState == ConnectionState.waiting) {
-              return const Center(child: CircularProgressIndicator());
-            }
+            if (snapshot.connectionState == ConnectionState.waiting) return const Center(child: CircularProgressIndicator());
+            
+            if (snapshot.hasError) return const Center(child: Text('Erro ao carregar os textos.'));
 
-            if (snapshot.hasError) {
-              return const Center(child: Text('Erro ao carregar os textos.'));
-            }
-
-            if (!snapshot.hasData || snapshot.data!.isEmpty) {
-              return const Center(child: Text('Nenhum texto encontrado.'));
-            }
+            if (!snapshot.hasData || snapshot.data!.isEmpty) return const Center(child: Text('Nenhum texto encontrado.'));
 
             final harpText = snapshot.data!.firstWhere(
               (text) => text.hino.toLowerCase().trim() == harp.toLowerCase().trim(),
