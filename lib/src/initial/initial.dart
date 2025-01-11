@@ -11,7 +11,7 @@ class Initial extends StatelessWidget {
       body: Container(
         decoration: const BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/images/fundo.jpeg'),
+            image: AssetImage('assets/images/backgroundInitial.jpeg'),
             fit: BoxFit.cover,
           ),
         ),

@@ -5,17 +5,13 @@ import 'package:flutter/services.dart';
 
 class TextModel {
   final String hino;
-  final String coro;
   final String verses;
-
-  TextModel({required this.hino, required this.coro, required this.verses});
+  TextModel({required this.hino, required this.verses});
 
   factory TextModel.fromJson(Map<String, dynamic> json) {
-    String verses = json['verses'] != null ? json['verses'].values.toString() : 'Versos não encontrados';
     return TextModel(
       hino: json['hino'] ?? 'Hino não encontrado',
-      coro: json['coro'] ?? 'Coro não encontrado',
-      verses: verses,
+      verses: json['verses'] ?? 'Versos não encontrados',
     );
   }
 }
@@ -27,7 +23,7 @@ class HarpContentScreen extends StatelessWidget {
 
   Future<List<TextModel>> loadTexts() async {
     try {
-      String jsonString = await rootBundle.loadString('assets/json/harpa_crista_640_hinos.json');
+      String jsonString = await rootBundle.loadString('assets/json/hinos.json');
       Map<String, dynamic> jsonResponse = jsonDecode(jsonString);
       List<TextModel> texts = [];
       jsonResponse.forEach((key, value) {
@@ -54,24 +50,20 @@ class HarpContentScreen extends StatelessWidget {
           future: loadTexts(),
           builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) return const Center(child: CircularProgressIndicator());
-            
+
             if (snapshot.hasError) return const Center(child: Text('Erro ao carregar os textos.'));
 
             if (!snapshot.hasData || snapshot.data!.isEmpty) return const Center(child: Text('Nenhum texto encontrado.'));
 
             final harpText = snapshot.data!.firstWhere(
-              (text) => text.hino.toLowerCase().trim() == harp.toLowerCase().trim(),
-              orElse: () => TextModel.fromJson({})
-            );
+                (text) =>
+                    text.hino.toLowerCase().trim() == harp.toLowerCase().trim(),
+                orElse: () => TextModel.fromJson({}));
 
             return SingleChildScrollView(
-              child: Column(
-                children: [
-                  Text(harpText.coro, style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                  textAlign: TextAlign.justify),
-                  Text(harpText.verses, style: const TextStyle(fontSize: 18),
-                  textAlign: TextAlign.justify),
-                ],
+              child: Text(
+                harpText.verses,
+                style: const TextStyle(fontSize: 18),
               ),
             );
           },
