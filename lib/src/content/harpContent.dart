@@ -6,6 +6,7 @@ import 'package:flutter/services.dart';
 class TextModel {
   final String hino;
   final String verses;
+
   TextModel({required this.hino, required this.verses});
 
   factory TextModel.fromJson(Map<String, dynamic> json) {
@@ -50,15 +51,13 @@ class HarpContentScreen extends StatelessWidget {
           future: loadTexts(),
           builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) return const Center(child: CircularProgressIndicator());
-
             if (snapshot.hasError) return const Center(child: Text('Erro ao carregar os textos.'));
-
             if (!snapshot.hasData || snapshot.data!.isEmpty) return const Center(child: Text('Nenhum texto encontrado.'));
 
             final harpText = snapshot.data!.firstWhere(
-                (text) =>
-                    text.hino.toLowerCase().trim() == harp.toLowerCase().trim(),
-                orElse: () => TextModel.fromJson({}));
+              (text) => text.hino.toLowerCase().trim() == harp.toLowerCase().trim(),
+              orElse: () => TextModel.fromJson({}),
+            );
 
             return SingleChildScrollView(
               child: Text(

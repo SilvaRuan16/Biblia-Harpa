@@ -30,7 +30,7 @@ class Initial extends StatelessWidget {
                     width: 200,
                     height: 50,
                     child: ElevatedButton.icon(
-                      icon: Icon(Icons.menu_book_rounded,
+                      icon: Icon(Icons.music_note,
                           color: Colors.grey[800]),
                       style: ElevatedButton.styleFrom(
                         shape: RoundedRectangleBorder(

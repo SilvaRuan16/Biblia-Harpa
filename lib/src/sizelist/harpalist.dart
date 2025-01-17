@@ -1,6 +1,6 @@
 import 'package:biblia_e_harpa/src/config.dart';
 import 'package:biblia_e_harpa/src/content/harpContent.dart';
-import 'package:biblia_e_harpa/src/initial/initial.dart';
+// import 'package:biblia_e_harpa/src/initial/initial.dart';
 import 'package:biblia_e_harpa/src/sizelist/harpkey.dart';
 import 'package:flutter/material.dart';
 
@@ -32,12 +32,17 @@ class _HarpaListState extends State<HarpaList> {
   }
 
   void _filterHarps() {
-    setState(() {
-      filteredHarps = harps
-          .where((hino) =>
-              hino.toLowerCase().contains(_searchController.text.toLowerCase()))
-          .toList();
-    });
+    setState(
+      () {
+        filteredHarps = harps
+            .where(
+              (hino) => hino.toLowerCase().contains(
+                    _searchController.text.toLowerCase(),
+                  ),
+            )
+            .toList();
+      },
+    );
   }
 
   @override
@@ -60,18 +65,21 @@ class _HarpaListState extends State<HarpaList> {
             child: TextField(
               controller: _searchController,
               decoration: InputDecoration(
-                  labelText: 'Pesquisar Hino',
-                  border: const OutlineInputBorder(),
-                  prefixIcon: const Icon(Icons.search),
-                  suffixIcon: IconButton(
-                    icon: const Icon(Icons.clear),
-                    onPressed: () {
-                      _searchController.clear();
-                      setState(() {
+                labelText: 'Pesquisar Hino',
+                border: const OutlineInputBorder(),
+                prefixIcon: const Icon(Icons.search),
+                suffixIcon: IconButton(
+                  icon: const Icon(Icons.clear),
+                  onPressed: () {
+                    _searchController.clear();
+                    setState(
+                      () {
                         filteredHarps = harps;
-                      });
-                    },
-                  )),
+                      },
+                    );
+                  },
+                ),
+              ),
             ),
           ),
           Expanded(
