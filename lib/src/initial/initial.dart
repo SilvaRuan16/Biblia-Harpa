@@ -1,3 +1,4 @@
+import 'package:biblia_e_harpa/src/content/doacao.dart';
 import 'package:biblia_e_harpa/src/sizelist/biblelist.dart';
 import 'package:biblia_e_harpa/src/sizelist/harpalist.dart';
 import 'package:flutter/material.dart';
@@ -71,6 +72,35 @@ class Initial extends StatelessWidget {
                       label: Text(
                         'Biblia',
                         style: TextStyle(fontSize: 18, color: Colors.grey[800]),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 20),
+                  SizedBox(
+                    width: 200,
+                    height: 50,
+                    child: ElevatedButton.icon(
+                      icon: const Icon(Icons.account_balance,
+                          color: Colors.white),
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.transparent,
+                        side: const BorderSide(
+                          color: Colors.white,
+                          width: 2,
+                        ),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                      ),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => const Doacao()),
+                        );
+                      },
+                      label: const Text(
+                        'Doação',
+                        style: TextStyle(fontSize: 18, color: Colors.white),
                       ),
                     ),
                   ),
