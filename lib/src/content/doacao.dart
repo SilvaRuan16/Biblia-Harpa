@@ -15,17 +15,17 @@ class _DoacaoState extends State<Doacao> {
     "Contribua para Manter o Aplicativo Disponível e em Funcionamento!\n\nNosso aplicativo foi criado com dedicação para oferecer uma experiência enriquecedora e acessível a todos. No entanto, ele não gera receita por download na Play Store. A monetização ocorre apenas por meio de anúncios e produtos pagos, sejam eles oferecidos dentro do aplicativo ou na instalação.\n\nSabemos que muitos usuários preferem uma experiência livre de anúncios ou não têm interesse em adquirir produtos. Por isso, as doações voluntárias se tornam essenciais para mantermos o aplicativo funcionando, atualizado e disponível para todos. Sua contribuição, independente do valor, ajuda a cobrir os custos de desenvolvimento, manutenção, servidores e melhorias contínuas.\n\nSe você aprecia o que oferecemos e deseja apoiar esse projeto, considere fazer uma doação. Juntos, podemos garantir que o aplicativo continue sendo uma ferramenta acessível para todos os usuários.\n\nMuito obrigado por fazer parte dessa jornada!";
 
   String pixKey = "5e32d467-b1e8-4db4-ae93-e6767105b704";
-  String buttonText = "Gerar Chave";
+  List <String> buttonText = ["Copiar Chave", "Chave Copiada!"];
 
   void copyToClipboard() {
     Clipboard.setData(ClipboardData(text: pixKey));
     setState(() {
-      buttonText = "Chave Copiada!";
+      buttonText[0] = buttonText[1];
     });
 
     Future.delayed(const Duration(seconds: 5), () {
       setState(() {
-        buttonText = "Gerar Chave";
+        buttonText[0] = "Copiar Chave";
       });
     });
   }
@@ -61,9 +61,9 @@ class _DoacaoState extends State<Doacao> {
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10),
                       ),
-                      backgroundColor: Colors.green),
+                      backgroundColor: mainColor),
                   child: Text(
-                    buttonText,
+                    buttonText[0],
                     style: const TextStyle(color: Colors.white, fontSize: 18),
                   ),
                 ),

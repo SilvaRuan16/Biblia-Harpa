@@ -27,7 +27,7 @@ flutter:
   assets:
     - assets/images/
     - assets/json/harpa_crista_640_hinos.json
-    - assets/json/hinos.json
+    # - assets/json/hinos.json
 
 flutter_icons:
   image_path: "assets/images/logoExecutavel.png"

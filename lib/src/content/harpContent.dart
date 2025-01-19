@@ -5,14 +5,16 @@ import 'package:flutter/services.dart';
 
 class TextModel {
   final String hino;
-  final String verses;
+  final String coro;
+  final Map<String, String> verses;
 
-  TextModel({required this.hino, required this.verses});
+  TextModel({required this.hino, required this.coro, required this.verses});
 
   factory TextModel.fromJson(Map<String, dynamic> json) {
     return TextModel(
       hino: json['hino'] ?? 'Hino não encontrado',
-      verses: json['verses'] ?? 'Versos não encontrados',
+      coro: json['coro'] ?? '',
+      verses: Map<String, String>.from(json['verses'] ?? {}),
     );
   }
 }
@@ -24,7 +26,8 @@ class HarpContentScreen extends StatelessWidget {
 
   Future<List<TextModel>> loadTexts() async {
     try {
-      String jsonString = await rootBundle.loadString('assets/json/hinos.json');
+      String jsonString = await rootBundle
+          .loadString('assets/json/harpa_crista_640_hinos.json');
       Map<String, dynamic> jsonResponse = jsonDecode(jsonString);
       List<TextModel> texts = [];
       jsonResponse.forEach((key, value) {
@@ -56,13 +59,29 @@ class HarpContentScreen extends StatelessWidget {
 
             final harpText = snapshot.data!.firstWhere(
               (text) => text.hino.toLowerCase().trim() == harp.toLowerCase().trim(),
-              orElse: () => TextModel.fromJson({}),
+                orElse: () => TextModel(hino: '', coro: '', verses: {}),
             );
 
             return SingleChildScrollView(
-              child: Text(
-                harpText.verses,
-                style: const TextStyle(fontSize: 18),
+              child: Column(
+                crossAxisAlignment:
+                    CrossAxisAlignment.start, 
+                children: [
+                  Text(
+                    harpText.coro,
+                    style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+                  const SizedBox(height: 16), 
+                  ...harpText.verses.entries.map(
+                    (entry) => Padding(
+                      padding: const EdgeInsets.only(
+                          bottom: 8.0), 
+                      child: Text(
+                        "${entry.key}. ${entry.value}",
+                        style: const TextStyle(fontSize: 16),
+                      ),
+                    ),
+                  )
+                ],
               ),
             );
           },
