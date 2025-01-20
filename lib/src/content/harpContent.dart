@@ -70,14 +70,14 @@ class HarpContentScreen extends StatelessWidget {
                   Text(
                     harpText.coro,
                     style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
-                  const SizedBox(height: 16), 
+                  const SizedBox(height: 30), 
                   ...harpText.verses.entries.map(
                     (entry) => Padding(
                       padding: const EdgeInsets.only(
-                          bottom: 8.0), 
+                          bottom: 30.0), 
                       child: Text(
                         "${entry.key}. ${entry.value}",
-                        style: const TextStyle(fontSize: 16),
+                        style: const TextStyle(fontSize: 18),
                       ),
                     ),
                   )
