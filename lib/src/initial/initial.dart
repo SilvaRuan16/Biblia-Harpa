@@ -41,7 +41,7 @@ class Initial extends StatelessWidget {
                       onPressed: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => HarpaList()),
+                          MaterialPageRoute(builder: (context) => const HarpaList()),
                         );
                       },
                       label: Text(

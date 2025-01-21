@@ -1,7 +1,7 @@
 import 'package:biblia_e_harpa/src/config.dart';
 import 'package:biblia_e_harpa/src/content/harpContent.dart';
 // import 'package:biblia_e_harpa/src/initial/initial.dart';
-import 'package:biblia_e_harpa/src/sizelist/harpkey.dart';
+import 'package:biblia_e_harpa/src/keys/harpkey.dart';
 import 'package:flutter/material.dart';
 
 class HarpaList extends StatefulWidget {

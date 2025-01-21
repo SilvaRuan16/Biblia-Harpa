@@ -1,4 +1,6 @@
 import 'package:biblia_e_harpa/src/config.dart';
+import 'package:biblia_e_harpa/src/keys/biblekey.dart';
+import 'package:biblia_e_harpa/src/sizelist/chapterlist.dart';
 // import 'package:biblia_e_harpa/src/initial/initial.dart';
 import 'package:flutter/material.dart';
 
@@ -18,12 +20,17 @@ class BiibleList extends StatelessWidget {
           style: TextStyle(color: Colors.white),
         ),
       ),
-      body: const Center(
-        child: Text(
-          'Em desenvolvimento',
-          style: TextStyle(fontSize: 18),
-        ),
-      ),
+      body: ListView.builder(
+        itemCount: books.length,
+        itemBuilder: (context, index) {
+          return ListTile(
+            title: Text(books[index]),
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) => ChapterListScreen(bookName: books[index])));
+            },
+          );
+        },
+      )
     );
   }
 }
