@@ -12,7 +12,7 @@ class Initial extends StatelessWidget {
       body: Container(
         decoration: const BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/images/backgroundInitial.jpeg'),
+            image: AssetImage('assets/images/fotoleaologo.jpg'),
             fit: BoxFit.cover,
           ),
         ),
@@ -27,30 +27,6 @@ class Initial extends StatelessWidget {
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  SizedBox(
-                    width: 200,
-                    height: 50,
-                    child: ElevatedButton.icon(
-                      icon: Icon(Icons.music_note,
-                          color: Colors.grey[800]),
-                      style: ElevatedButton.styleFrom(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                      ),
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => const HarpaList()),
-                        );
-                      },
-                      label: Text(
-                        'Harpa',
-                        style: TextStyle(fontSize: 18, color: Colors.grey[800]),
-                      ),
-                    ),
-                  ),
-                  const SizedBox(height: 20),
                   SizedBox(
                     width: 200,
                     height: 50,
@@ -71,6 +47,30 @@ class Initial extends StatelessWidget {
                       },
                       label: Text(
                         'Biblia',
+                        style: TextStyle(fontSize: 18, color: Colors.grey[800]),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 20),
+                  SizedBox(
+                    width: 200,
+                    height: 50,
+                    child: ElevatedButton.icon(
+                      icon: Icon(Icons.music_note,
+                          color: Colors.grey[800]),
+                      style: ElevatedButton.styleFrom(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                      ),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => const HarpaList()),
+                        );
+                      },
+                      label: Text(
+                        'Harpa',
                         style: TextStyle(fontSize: 18, color: Colors.grey[800]),
                       ),
                     ),

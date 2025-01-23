@@ -66,7 +66,7 @@ class _DoacaoState extends State<Doacao> {
                       backgroundColor: mainColor),
                   child: Text(
                     buttonText[0],
-                    style: const TextStyle(color: Colors.white, fontSize: 18),
+                    style: const TextStyle(color: Colors.white, fontSize: 16),
                   ),
                 ),
               )
