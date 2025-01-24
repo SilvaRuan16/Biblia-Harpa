@@ -1,8 +1,8 @@
-import 'package:biblia_e_harpa/src/config.dart';
-import 'package:biblia_e_harpa/src/content/harpContent.dart';
-// import 'package:biblia_e_harpa/src/initial/initial.dart';
-import 'package:biblia_e_harpa/src/keys/harpkey.dart';
-import 'package:flutter/material.dart';
+import "package:biblia_e_harpa/src/config.dart";
+import "package:biblia_e_harpa/src/content/harpContent.dart";
+// import "package:biblia_e_harpa/src/initial/initial.dart";
+import "package:biblia_e_harpa/src/keys/harpkey.dart";
+import "package:flutter/material.dart";
 
 class HarpaList extends StatefulWidget {
   const HarpaList({super.key});
@@ -54,7 +54,7 @@ class _HarpaListState extends State<HarpaList> {
         automaticallyImplyLeading: true,
         iconTheme: const IconThemeData(color: Colors.white),
         title: const Text(
-          'Harpa Cristã',
+          "Harpa Cristã",
           style: TextStyle(color: Colors.white),
         ),
       ),
@@ -65,7 +65,7 @@ class _HarpaListState extends State<HarpaList> {
             child: TextField(
               controller: _searchController,
               decoration: InputDecoration(
-                labelText: 'Pesquisar Hino',
+                labelText: "Pesquisar Hino",
                 border: const OutlineInputBorder(),
                 prefixIcon: const Icon(Icons.search),
                 suffixIcon: IconButton(

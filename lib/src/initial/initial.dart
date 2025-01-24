@@ -42,7 +42,7 @@ class Initial extends StatelessWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => const BiibleList()),
+                              builder: (context) => const BibleList()),
                         );
                       },
                       label: Text(
