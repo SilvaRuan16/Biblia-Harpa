@@ -19,13 +19,13 @@ class Config extends StatelessWidget {
         child: Column(
           children: [
             Padding(
-              padding: const EdgeInsets.all(25.0),
+              padding: const EdgeInsets.all(10),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   SizedBox(
-                    width: 200,
-                    height: 120,
+                    width: sizeBtnOptions[0],
+                    height: sizeBtnOptions[1],
                     child: ElevatedButton(
                       onPressed: () {},
                       style: ElevatedButton.styleFrom(
@@ -52,8 +52,8 @@ class Config extends StatelessWidget {
                     ),
                   ),
                   SizedBox(
-                    width: 200,
-                    height: 120,
+                    width: sizeBtnOptions[0],
+                    height: sizeBtnOptions[1],
                     child: ElevatedButton(
                       onPressed: () {},
                       style: ElevatedButton.styleFrom(
@@ -83,13 +83,13 @@ class Config extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(25.0),
+              padding: const EdgeInsets.all(10),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   SizedBox(
-                    width: 200,
-                    height: 120,
+                    width: sizeBtnOptions[0],
+                    height: sizeBtnOptions[1],
                     child: ElevatedButton(
                       onPressed: () {},
                       style: ElevatedButton.styleFrom(
@@ -98,7 +98,8 @@ class Config extends StatelessWidget {
                           elevation: 7,
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10),
-                              side: const BorderSide(color: Colors.transparent))),
+                              side:
+                                  const BorderSide(color: Colors.transparent))),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
@@ -107,16 +108,16 @@ class Config extends StatelessWidget {
                           const SizedBox(height: 10),
                           Text(
                             "Cores",
-                            style:
-                                TextStyle(fontSize: 16, color: Colors.grey[800]),
+                            style: TextStyle(
+                                fontSize: 16, color: Colors.grey[800]),
                           ),
                         ],
                       ),
                     ),
                   ),
                   SizedBox(
-                    width: 200,
-                    height: 120,
+                    width: sizeBtnOptions[0],
+                    height: sizeBtnOptions[1],
                     child: ElevatedButton(
                       onPressed: () {},
                       style: ElevatedButton.styleFrom(
@@ -125,7 +126,8 @@ class Config extends StatelessWidget {
                           elevation: 7,
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10),
-                              side: const BorderSide(color: Colors.transparent))),
+                              side:
+                                  const BorderSide(color: Colors.transparent))),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
@@ -134,8 +136,8 @@ class Config extends StatelessWidget {
                           const SizedBox(height: 10),
                           Text(
                             "Sobre",
-                            style:
-                                TextStyle(fontSize: 16, color: Colors.grey[800]),
+                            style: TextStyle(
+                                fontSize: 16, color: Colors.grey[800]),
                           ),
                         ],
                       ),
