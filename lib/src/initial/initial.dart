@@ -1,3 +1,4 @@
+import 'package:biblia_e_harpa/src/content/config.dart';
 import 'package:biblia_e_harpa/src/content/doacao.dart';
 import 'package:biblia_e_harpa/src/sizelist/biblelist.dart';
 import 'package:biblia_e_harpa/src/sizelist/harpalist.dart';
@@ -9,6 +10,17 @@ class Initial extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.transparent,
+        shape: RoundedRectangleBorder(
+            side: const BorderSide(color: Colors.white, width: 2),
+            borderRadius: BorderRadius.circular(10.0)),
+        onPressed: () {
+          Navigator.push(context, MaterialPageRoute(builder: (context) => const Config()));
+        },
+        child: const Icon(Icons.settings, color: Colors.white),
+      ),
       body: Container(
         decoration: const BoxDecoration(
           image: DecorationImage(
@@ -56,8 +68,7 @@ class Initial extends StatelessWidget {
                     width: 200,
                     height: 50,
                     child: ElevatedButton.icon(
-                      icon: Icon(Icons.music_note,
-                          color: Colors.grey[800]),
+                      icon: Icon(Icons.music_note, color: Colors.grey[800]),
                       style: ElevatedButton.styleFrom(
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10),
@@ -66,7 +77,8 @@ class Initial extends StatelessWidget {
                       onPressed: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => const HarpaList()),
+                          MaterialPageRoute(
+                              builder: (context) => const HarpaList()),
                         );
                       },
                       label: Text(
@@ -95,7 +107,8 @@ class Initial extends StatelessWidget {
                       onPressed: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => const Doacao()),
+                          MaterialPageRoute(
+                              builder: (context) => const Doacao()),
                         );
                       },
                       label: const Text(
