@@ -2,6 +2,7 @@ import 'package:biblia_e_harpa/src/config.dart';
 import 'package:biblia_e_harpa/src/keys/biblekey.dart';
 import 'package:biblia_e_harpa/src/sizelist/chapterlist.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class BibleList extends StatefulWidget {
   const BibleList({super.key});
@@ -13,12 +14,21 @@ class BibleList extends StatefulWidget {
 class _BibleListState extends State<BibleList> {
   List<String> filteredBible = [];
   final TextEditingController _searchController = TextEditingController();
+  String _jsonPath = 'assets/json/acf.json';
 
   @override
   void initState() {
     super.initState();
+    _loadSelectedVersion();
     filteredBible = books;
     _searchController.addListener(_filterBible);
+  }
+
+  Future<void> _loadSelectedVersion() async {
+    final prefs = await SharedPreferences.getInstance();
+    setState(() {
+      _jsonPath = 'assets/json/${prefs.getString('selectedVersion') ?? 'acf.json'}';
+    });
   }
 
   @override
@@ -43,9 +53,8 @@ class _BibleListState extends State<BibleList> {
     setState(() {
       filteredBible = books
           .where(
-            (book) => _normalize(book).contains(
-                  _normalize(_searchController.text)
-                ),
+            (book) =>
+                _normalize(book).contains(_normalize(_searchController.text)),
           )
           .toList();
     });
@@ -99,7 +108,7 @@ class _BibleListState extends State<BibleList> {
                       MaterialPageRoute(
                         builder: (context) => ChapterListScreen(
                           name: filteredBible[index],
-                          jsonPath: 'assets/json/acf.json',
+                          jsonPath: _jsonPath,
                         ),
                       ),
                     );
