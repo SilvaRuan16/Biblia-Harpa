@@ -60,6 +60,33 @@ class _BibleListState extends State<BibleList> {
     });
   }
 
+  void _onMenuItemSelected(String value) async {
+    final prefs = await SharedPreferences.getInstance();
+    switch (value) {
+      case "ACF":
+        setState(() {
+          _jsonPath = 'assets/json/acf.json';
+        });
+        await prefs.setString('selectedVersion', 'acf.json');
+        break;
+      case 'NVI':
+        setState(() {
+          _jsonPath = 'assets/json/nvi.json';
+        });
+        await prefs.setString('selectedVersion', 'nvi.json');
+        break;
+      case 'AA':
+        setState(() {
+          _jsonPath = 'assets/json/aa.json';
+        });
+        await prefs.setString('selectedVersion', 'aa.json');
+        break;
+      default:
+        break;
+    }
+    filteredBible;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -72,6 +99,31 @@ class _BibleListState extends State<BibleList> {
           'Biblia Cristã',
           style: TextStyle(color: Colors.white),
         ),
+        actions: [
+          SizedBox(
+            width: sizeBtnOptions[0], 
+            height: sizeBtnOptions[1],
+            child: PopupMenuButton<String>(
+              onSelected: _onMenuItemSelected, 
+              itemBuilder: (BuildContext context) {
+                return [
+                  const PopupMenuItem<String>(
+                    value: "ACF",
+                    child: Text("Almeida Corrigida Fiel"),
+                  ),
+                  const PopupMenuItem<String>(
+                    value: "NVI",
+                    child: Text("Nova Versão Internacional"),
+                  ),
+                  const PopupMenuItem<String>(
+                    value: "AA",
+                    child: Text("Almeida Atualizada"),
+                  ),
+                ];
+              },
+            ),
+          ),
+        ],
       ),
       body: Column(
         children: [

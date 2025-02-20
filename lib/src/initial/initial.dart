@@ -10,17 +10,17 @@ class Initial extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.transparent,
-        shape: RoundedRectangleBorder(
-            side: const BorderSide(color: Colors.white, width: 2),
-            borderRadius: BorderRadius.circular(10.0)),
-        onPressed: () {
-          Navigator.push(context, MaterialPageRoute(builder: (context) => const Config()));
-        },
-        child: const Icon(Icons.settings, color: Colors.white),
-      ),
+      // floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
+      // floatingActionButton: FloatingActionButton(
+      //   backgroundColor: Colors.transparent,
+      //   shape: RoundedRectangleBorder(
+      //       side: const BorderSide(color: Colors.white, width: 2),
+      //       borderRadius: BorderRadius.circular(10.0)),
+      //   onPressed: () {
+      //     Navigator.push(context, MaterialPageRoute(builder: (context) => const Config()));
+      //   },
+      //   child: const Icon(Icons.settings, color: Colors.white),
+      // ),
       body: Container(
         decoration: const BoxDecoration(
           image: DecorationImage(
