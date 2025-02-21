@@ -1,4 +1,3 @@
-import 'package:biblia_e_harpa/src/content/config.dart';
 import 'package:biblia_e_harpa/src/content/doacao.dart';
 import 'package:biblia_e_harpa/src/sizelist/biblelist.dart';
 import 'package:biblia_e_harpa/src/sizelist/harpalist.dart';

@@ -20,7 +20,7 @@ final List<String> books = [
 'Salmos',
 'Provérbios',
 'Eclesiastes',
-'Cantares',
+'Cânticos',
 'Isaías',
 'Jeremias',
 'Lamentações',
