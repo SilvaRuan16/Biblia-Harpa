@@ -14,3 +14,17 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+
+
+Janeiro (Jan): 31 dias
+Fevereiro (Fev): 28 dias (29 dias em anos bissextos, mas não em 2025)
+Março (Mar): 31 dias
+Abril (Abr): 30 dias
+Maio (Mai): 31 dias
+Junho (Jun): 30 dias
+Julho (Jul): 31 dias
+Agosto (Ago): 31 dias
+Setembro (Set): 30 dias
+Outubro (Out): 31 dias
+Novembro (Nov): 30 dias
+Dezembro (Dez): 31 dias

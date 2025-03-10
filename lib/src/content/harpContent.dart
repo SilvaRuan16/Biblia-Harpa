@@ -65,16 +65,16 @@ class HarpContentScreen extends StatelessWidget {
             return SingleChildScrollView(
               child: Column(
                 crossAxisAlignment:
-                    CrossAxisAlignment.start, 
+                    CrossAxisAlignment.start,
                 children: [
                   Text(
                     harpText.coro,
                     style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
-                  const SizedBox(height: 30), 
+                  const SizedBox(height: 30),
                   ...harpText.verses.entries.map(
                     (entry) => Padding(
                       padding: const EdgeInsets.only(
-                          bottom: 30.0), 
+                          bottom: 30.0),
                       child: Text(
                         "${entry.key}. ${entry.value}",
                         style: const TextStyle(fontSize: 18),

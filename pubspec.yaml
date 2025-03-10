@@ -31,6 +31,7 @@ flutter:
     - assets/json/acf.json
     - assets/json/aa.json
     - assets/json/nvi.json
+    - assets/json/devocional.json
 flutter_icons:
   image_path: "assets/images/logoExecutavel.png"
   android: true

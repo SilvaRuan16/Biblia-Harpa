@@ -101,10 +101,10 @@ class _BibleListState extends State<BibleList> {
         ),
         actions: [
           SizedBox(
-            width: sizeBtnOptions[0], 
+            width: sizeBtnOptions[0],
             height: sizeBtnOptions[1],
             child: PopupMenuButton<String>(
-              onSelected: _onMenuItemSelected, 
+              onSelected: _onMenuItemSelected,
               itemBuilder: (BuildContext context) {
                 return [
                   const PopupMenuItem<String>(
